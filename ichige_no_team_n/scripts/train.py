@@ -42,7 +42,7 @@ if __name__ == '__main__':
                         help='List of index of training set')
     parser.add_argument('--val_set', '-v', type=str, nargs='*', default=[1],
                         help='List of index of validation set')
-    parser.add_argument('--synsets', '-s', type=str, default='/home/ubuntu/data/ichige/data/label1.csv',
+    parser.add_argument('--synsets', '-s', type=str, default='data/label1.csv',
                         help='Path to label name file')
     parser.add_argument('--l_sequence', '-l', type=int, default=151,
                         help='Length of sequences')
@@ -56,13 +56,13 @@ if __name__ == '__main__':
     optimizer.setup(model)
 
     train_features_list = [
-        '/home/ubuntu/data/ichige_no_team/data/features{}.json'.format(i) for i in args.train_set]
+        'data/features{}.json'.format(i) for i in args.train_set]
     val_features_list = [
-        '/home/ubuntu/data/ichige_no_team/data/features{}.json'.format(i) for i in args.val_set]
+        'data/features{}.json'.format(i) for i in args.val_set]
     train_labels_list = [
-        '/home/ubuntu/data/ichige_no_team/data/annotation{}.csv'.format(i) for i in args.train_set]
+        'data/annotation{}.csv'.format(i) for i in args.train_set]
     val_labels_list = [
-        '/home/ubuntu/data/ichige_no_team/data/annotation{}.csv'.format(i) for i in args.val_set]
+        'data/annotation{}.csv'.format(i) for i in args.val_set]
 
     train = dataset.Dataset(train_features_list, train_labels_list,
                             l_sequence=args.l_sequence, train=True)
